@@ -15,13 +15,16 @@ class Generator(object):
 
     def draw_product_labels(self, label_content, labels_count):
         for i in range(0, labels_count):
-            width, height = self.label_template['image']['size']
+            width, height = self.__calculate_position(
+                *self.label_template['image']['size'])
+            
             self.canvas.drawImage(
                 label_content['image']['path'], 
                 0, 0, width, height)
 
             for key, value in label_content['strings'].items():
-                x, y = self.__calculate_position(*self.label_template['strings'][key]['position'])
+                x, y = self.__calculate_position(
+                    *self.label_template['strings'][key]['position'])
                 color = self.label_template['strings'][key]['color']
                 font_size = self.label_template['strings'][key]['font-size']
                 self.canvas.setFillColorRGB(*color)

@@ -62,7 +62,7 @@ def test_reportlab(request):
             'size': (3.5*inch, 3.5*inch)
         },
         'image': {
-            'size': (3.5*inch, 3.5*inch)
+            'size': (1, 1)
         },
         'strings': {
             'product-name': {
